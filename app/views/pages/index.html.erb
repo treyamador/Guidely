@@ -1,14 +1,11 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
 <%#= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
 <%# = react_component('Page', { text: @text }) %>
 
-<div class="directory-wrapper">
+<div class="directory">
   <% @pages.each do |page| %>
-    <div class="directory-entry">
-      <div><%= link_to page.title, page %></div>
-      <div><%= page.author %></div>
-      <div> ~ ~ ~ ~ ~ ~ </div>
+    <div class="directory__entry">
+      <div class="directory__title"><%= link_to page.title, page %></div>
+      <div class="directory__author"><%= page.author %></div>
     </div>
   <% end %>
 </div>
