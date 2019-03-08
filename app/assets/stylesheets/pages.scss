@@ -24,3 +24,52 @@
     @include unselectable();
   }
 }
+
+.page__title {
+  position: relative;
+  width: 80%;
+  margin: 20px auto;
+  font-size: 3.0vw;
+  font-family: Courier;
+}
+
+.page__author {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 2.0vw;
+  font-family: Courier;
+}
+
+
+.directory {
+  position: relative;
+  width: 40%;
+  left: 30%;
+}
+
+.directory__entry {
+  font-family: Courier;
+  margin: 50px 0px;
+}
+
+.directory__title {
+  font-size: 2vw;
+  margin: 20px 0px;
+}
+
+.directory__author {
+  font-size: 1.5vw;
+}
+
+.page__save-button {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 1.5vw;
+  font-family: Courier;
+}
+
+.page__save-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

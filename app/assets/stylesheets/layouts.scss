@@ -1,0 +1,43 @@
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.application-container {
+  margin-top: 150px;
+}
+
+.nav-bar {
+  overflow: hidden;
+  background-color: #fdfdfd;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 2px -2px gray;
+  z-index: 1;
+}
+
+.nav-bar__padding {
+  display: block;
+  text-align: center;
+  padding: 20px 0;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Courier;
+}
+
+.nav-bar__link {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+
+.footer {
+  display: block;
+  text-align: right;
+  padding: 40px 60px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Courier;
+}
