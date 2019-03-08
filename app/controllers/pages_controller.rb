@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def create
+    Highlight.where(page_id: params[:page_id]).destroy_all
     params[:highlights].each do |k, v|
       Highlight.create!(
         page_id: params[:page_id],
@@ -18,9 +19,5 @@ class PagesController < ApplicationController
       )
     end
     render json: { response: :ok }
-  end
-
-  def highlight_params
-    params.require(:highlights).permit(:page_id, highlights: [ :color, :start, :end])
   end
 end
