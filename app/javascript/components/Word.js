@@ -13,12 +13,18 @@ class Word extends React.Component {
   }
 
   highlight = (evnt) => {
-    this.setState({
-      highlight: 'yellow'
-    });
+    let not_highlighted = true;
+    for (let i = 0; i < DIGITS && not_highlighted; ++i) {
+      if(this.props.keymap[ZERO_KEY+i]) {
+        this.setState({
+          highlight: this.props.colorCodes[i]
+        });
+        not_highlighted = false;
+      }
+    }
   };
 
-  render () {
+  render() {
     let wordStyle = {
       backgroundColor: this.state.highlight
     }
@@ -26,9 +32,7 @@ class Word extends React.Component {
     return (
       <span className="word"
             style={ wordStyle }
-            onMouseOver={ this.highlight }
-            onKeyDown={ this.keydown }
-            onKeyUp={ this.keyup } >
+            onMouseOver={ this.highlight } >
         { this.props.children }
       </span>
     );
