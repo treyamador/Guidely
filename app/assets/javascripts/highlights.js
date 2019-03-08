@@ -10,6 +10,9 @@ class HighlightParser {
   }
 
   save = () => {
+
+    console.log('at save');
+
     let consec = [];
     let words = $('.page__text').find('.word');
     words.each((i, word_html) => {
@@ -27,6 +30,8 @@ class HighlightParser {
       }
     }
 
+    console.log('pre ajax',consec);
+
     $.ajax({
       method: 'POST',
       url: '/pages',
@@ -35,7 +40,12 @@ class HighlightParser {
         highlights: consec
       },
       dataType: 'json',
-      success: function(data) {}
+      success: function(data) {
+        console.log('success', data);
+      },
+      error: function(data) {
+        console.log('error', data);
+      }
     });
 
   }
