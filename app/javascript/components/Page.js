@@ -10,7 +10,6 @@ const COLOR_CODES = [
 class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.initColorCodes();
     this.keyListener();
     this.state = {
       text: this.parse(this.props.text)
@@ -20,21 +19,11 @@ class Page extends React.Component {
   keyListener = () => {
     this.keymap = { current: { code: null, color: 'transparent' } };
     document.addEventListener('keydown', (evnt) => {
-      let color = this.keymap.current.code === evnt.which ? 
+      let color = this.keymap.current.code === evnt.which && this.keymap.current.color !== 'transparent' ? 
         'transparent' : COLOR_CODES[evnt.which-48];
       this.keymap.current = { code: evnt.which, color: color };
     });
-    //document.addEventListener('keyup', (evnt) => {
-    //  this.keymap.current = evnt.which;
-    //});
   };
-
-  initColorCodes = () => {
-    this.colorCodes = [
-      '#F2D7D5', '#F7DC6F', '#7DCEA0', '#85C1E9', '#BB8FCE',
-      '#F1948A', '#F8C471', '#FCF3CF', '#D4EFDF', '#D6EAF8'
-    ];
-  }
 
   parse = (text) => {
     return text.split(/(\s+)/).map(

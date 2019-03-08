@@ -5,4 +5,8 @@ class PagesController < ApplicationController
       'like so many of the grotesques and the little rivulets of fortune and thought. '
     @text = passage * 15
   end
+
+  def show
+    @text = ''
+  end
 end
