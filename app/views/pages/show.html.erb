@@ -3,6 +3,6 @@
 <h1> <%= @page.title %></h1>
 <h3><%= @page.author %></h3>
 <div>
-  <%= react_component('Page', { text: @page.body }) %>
+  <%= react_component('Page', { id: @page.id, text: @page.body }) %>
 </div>
 <div id="save-highlighting"> save! </div>

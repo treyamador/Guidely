@@ -34,7 +34,7 @@ class Page extends React.Component {
   render () {
     return (
       <div className="page__wrapper">
-        <div className="page" >
+        <div className="page" id={ this.props.id } >
           <div className="page__text">
             { this.state.text }
           </div>

@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # react gems
 gem 'webpacker'
 gem 'react-rails'
+gem 'jquery-rails'
 
 gem 'faker'
 
