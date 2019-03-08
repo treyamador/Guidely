@@ -10,8 +10,6 @@ def paragraph
   Faker::Lorem.paragraph_by_chars(256, false) * 20
 end
 
-puts paragraph
-
 100.times do
   Page.create!(
     title: Faker::GreekPhilosophers.quote,

@@ -31,7 +31,7 @@ class HighlightParser {
       method: 'POST',
       url: '/pages',
       data: {
-        id: $('.page').attr('id'),
+        page_id: $('.page').attr('id'),
         highlights: consec
       },
       dataType: 'json',

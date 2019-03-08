@@ -9,13 +9,10 @@ class PagesController < ApplicationController
 
   def create
     puts params[:highlights]
-    # puts params[:id]
-    # puts 'yolo'
+    Highlight.create(highlight_params)
+  end
 
-    highlights = params[:highlights]
-    highlights.each do |h|
-      puts h
-    end
-
+  def highlight_params
+    params.require(:highlights).permit(:page_id, highlights: {})
   end
 end
