@@ -5,14 +5,10 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(id: params[:id])
+    @highlight = Highlight.where(page_id: params[:id])
   end
 
   def create
-    puts 'hellow'
-    puts params[:highlights]
-    # puts params[:id]
-    # puts 'yolo'
-
     params[:highlights].each do |k, v|
       Highlight.create!(
         page_id: params[:page_id],

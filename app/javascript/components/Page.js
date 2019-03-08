@@ -12,7 +12,7 @@ class Page extends React.Component {
     super(props);
     this.keyListener();
     this.state = {
-      text: this.parse(this.props.text)
+      text: this.parse(this.props.page.body)
     };
   }
 
@@ -26,15 +26,22 @@ class Page extends React.Component {
   };
 
   parse = (text) => {
-    return text.split(/(\s+)/).map(
-      (word, index) => <Word key={'word-'+index} keymap={ this.keymap } colorCodes={ this.colorCodes }>{ word }</Word>
-    );
+    return text.split(/(\s+)/).map((word, index) => {
+      let bg = 'transparent';
+      let highlight = this.props.highlight;
+      for (let i = 0; i < highlight.length && bg === 'transparent'; ++i) {
+        if (index >= highlight[i].start && index <= highlight[i].end) {
+          bg = highlight[i].color;
+        }
+      }
+      return <Word key={'word-'+index} keymap={ this.keymap } highlight={ bg } >{ word }</Word>; 
+    });
   };
 
   render () {
     return (
       <div className="page__wrapper">
-        <div className="page" id={ this.props.id } >
+        <div className="page" id={ this.props.page.id } >
           <div className="page__text">
             { this.state.text }
           </div>

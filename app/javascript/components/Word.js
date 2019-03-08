@@ -8,7 +8,7 @@ class Word extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      highlight: 'transparent'
+      highlight: this.props.highlight,
     };
   }
 

@@ -11,8 +11,6 @@ class HighlightParser {
 
   save = () => {
 
-    console.log('at save');
-
     let consec = [];
     let words = $('.page__text').find('.word');
     words.each((i, word_html) => {
@@ -29,8 +27,6 @@ class HighlightParser {
         ++i;
       }
     }
-
-    console.log('pre ajax',consec);
 
     $.ajax({
       method: 'POST',
