@@ -1,8 +1,26 @@
 class PagesController < ApplicationController
   def index
-    passage = 'That which is, or that which was, of our little fixations which encumber us '\
-      'and shake us unquestioningly. They shake us to so many cores and centers '\
-      'like so many of the grotesques and the little rivulets of fortune and thought. '
-    @text = passage * 15
+    @pages = Page.all
+  end
+
+  def show
+    @page = Page.find_by(id: params[:id])
+    @highlight = Highlight.where(page_id: params[:id])
+  end
+
+  def create
+    params[:highlights].each do |k, v|
+      Highlight.create!(
+        page_id: params[:page_id],
+        start: v['start'].to_i,
+        end: v['end'].to_i,
+        color: v['color']
+      )
+    end
+    render json: { response: :ok }
+  end
+
+  def highlight_params
+    params.require(:highlights).permit(:page_id, highlights: [ :color, :start, :end])
   end
 end

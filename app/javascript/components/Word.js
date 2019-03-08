@@ -8,20 +8,14 @@ class Word extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      highlight: 'transparent'
+      highlight: this.props.highlight,
     };
   }
 
-  highlight = (evnt) => {
-    let not_highlighted = true;
-    for (let i = 0; i < DIGITS && not_highlighted; ++i) {
-      if(this.props.keymap[ZERO_KEY+i]) {
-        this.setState({
-          highlight: this.props.colorCodes[i]
-        });
-        not_highlighted = false;
-      }
-    }
+  highlight = () => {
+    this.setState({
+      highlight: this.props.keymap.current.color
+    });
   };
 
   render() {

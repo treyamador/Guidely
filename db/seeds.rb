@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+def paragraph
+  Faker::Lorem.paragraph_by_chars(256, false) * 20
+end
+
+100.times do
+  Page.create!(
+    title: Faker::GreekPhilosophers.quote,
+    author: Faker::Artist.name,
+    body: paragraph
+  )
+end
